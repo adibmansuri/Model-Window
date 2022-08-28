@@ -3,12 +3,18 @@ const modal = document.querySelector('.modal');
 const overlay = document.querySelector('.overlay');
 const btnClosemodel = document.querySelector('.close-modal');
 const btnopenmodel = document.querySelectorAll('.show-modal');
-console.log(btnopenmodel);
+
+const openmodel = function () {
+  console.log('button click');
+  modal.classList.remove('hidden');
+  overlay.classList.remove('hidden');
+};
+const closemodel = function () {
+  modal.classList.add('hidden');
+  overlay.classList.add('hidden');
+};
 for (let i = 0; i < btnopenmodel.length; i++)
-  console.log(
-    btnopenmodel[i].addEventListener('click', function () {
-      console.log('button click');
-      modal.classList.remove('hidden');
-      overlay.classList.remove('hidden');
-    })
-  );
+  console.log(btnopenmodel[i].addEventListener('click', openmodel));
+
+btnClosemodel.addEventListener('click', closemodel);
+overlay.addEventListener('click', closemodel);
